@@ -1,0 +1,232 @@
+BLUESTOCK FINTECH
+Mutual Fund Analytics & Risk Intelligence Dashboard
+Final Internship Project Report
+
+Submitted By:
+Minakshi Kaushik
+
+Internship Domain:
+Data Science & Financial Analytics
+
+Organization:
+BlueStock Fintech
+
+Duration:
+Day 1 – Day 7 Capstone Project Execution Workspace
+
+EXECUTIVE SUMMARY
+
+The Mutual Fund Analytics & Risk Intelligence Dashboard is an institutional-grade financial analytics platform developed to evaluate, compare, and visualize mutual fund performance using quantitative investment metrics. The project integrates robust data engineering, exploratory data analysis (EDA), financial performance analytics, risk modeling, and interactive dashboard development into a single end-to-end operational software workspace.
+
+The system processes historical Net Asset Value (NAV) timelines, computes advanced risk-adjusted performance layers, generates automated fund rankings, and provides investors with actionable insights through a unified interactive user-terminal interface.
+
+PROBLEM STATEMENT
+
+Investors frequently struggle to perform thorough mutual fund due diligence due to fragmented information ecosystems spread across mismatched public ledgers. While basic trailing historical returns are commonly available, critical analytical vectors—such as downside risk metrics, alpha generation parameters, dynamic market sensitivities (beta tracking), and extreme tail-risk exposure statistics—are heavily siloed or hidden behind expensive data subscription paywalls.
+
+This project directly bridges this operational data gap by providing a centralized analytics platform that combines automated backend extraction pipelines with comprehensive metrics calculations and front-end visualization engines.
+
+PROJECT OBJECTIVES
+
+The primary objectives of the project were:
+
+Build an automated, multi-stage mutual fund data processing ETL pipeline.
+
+Optimize time-series indexing to manage and store historical NAV data efficiently.
+
+Analyze mutual fund historical behaviors using standard quantitative metrics.
+
+Evaluate risk-adjusted performance efficiencies (Sharpe and Sortino frameworks).
+
+Develop advanced institutional tail-risk and systemic exposure analytics layers.
+
+Design a highly visible interactive investor dashboard environment.
+
+Generate automated, data-driven insights to guide investment decisions.
+
+DAY-BY-DAY MILESTONE BREAKDOWNS
+
+DAY 1 – Project Setup & Data Ingestion (ETL)
+
+Objective: Create a robust data ingestion layer and optimized relational database architecture.
+
+Activities Performed:
+
+Established isolated project virtual environments and structured workspace file nodes.
+
+Designed an optimized relational database schema mapping raw transactional datasets.
+
+Initialized tracking components to catch missing variables or broken identity markers.
+
+Automated the processing of baseline compliance inputs directly into permanent indexed staging blocks.
+
+Database Schema Mapping:
+
+Table Name: fact_nav (Transactional Core)
+Tracks daily time-series index paths.
+Fields: Date, AMFI Code, NAV
+
+Table Name: dim_fund (Dimensional Attribute Layer)
+Catalogues master structural asset profiles.
+Fields: AMFI Code, Scheme Name, Fund House, Category, Plan, Risk Category
+
+Outcome: Successfully constructed a secure, structured relational analytics data warehouse (bluestock_mf.db) hosting complete historical fund records.
+
+DAY 2 – Data Cleaning, Imputation & Transformation
+
+Objective: Prepare raw transactional artifacts and fill data gaps to ensure clean financial calculations.
+
+Activities Performed:
+
+Cleared duplicate data inputs and standardized variant text objects into uniform time stamps.
+
+Addressed holiday and weekend market liquidity gaps using sequential forward-fill (ffill) followed by backward-fill (bfill) logic.
+
+Standardized trailing float parameters and enforced rigorous data type corrections across operational tables.
+
+Pivoted stacked data into a wide-form continuous price matrix tracking all schemes simultaneously over a clean date matrix index.
+
+Outcome: Generated an uncorrupted, analysis-ready master dataset that completely avoids trailing computational script breaks.
+
+DAY 3 – Exploratory Data Analysis (EDA)
+
+Objective: Perform cross-sectional statistical sweeps to extract hidden behavioral properties and category drifts.
+
+Activities Performed:
+
+Executed data distribution analyses, rolling return variance sweeps, and historical path visualizations.
+
+Compiled statistical summary profiles to map operational asset structures.
+
+Run category-level comparisons tracking baseline growth parameters.
+
+Key Findings Discovered:
+
+Substantial historical performance and consistency variations exist even among funds nested within identical investment mandates.
+
+Raw trailing performance lines are highly deceptive; multiple high-return schemes exhibit severe tail-risk downside vulnerability.
+
+Long-term compounding growth vectors remain structurally anchored to consistent risk discipline over simple return optimization.
+
+Outcome: Established an advanced statistical foundation detailing fund volatility behaviors prior to coding core financial modules.
+
+DAY 4 – Fund Performance Analytics Engine
+
+Objective: Apply quantitative finance algorithms to calculate risk-adjusted performance rankings.
+
+Metrics Implemented:
+
+Compound Annual Growth Rate (CAGR): Compiles smoothed compounding multi-period rate of historical return structures over an explicit 3-year trailing analysis horizon.
+
+Sharpe Volatility Ratio: Evaluates risk-adjusted return efficiency earned per unit of total standard deviation, calculated against a customized 6.0% annualized risk-free asset floor.
+
+Sortino Downside Ratio: Measures excess return generated relative strictly to downside semi-deviation, isolating harmful portfolio drops from upward growth movements.
+
+Portfolio Alpha Generation: Tracks premium outperformance capabilities isolated entirely from broader index momentum characteristics.
+
+Capital Asset Pricing Model (CAPM) Beta: Quantifies directional volatility and sensitivity profiles relative to baseline market index indicators.
+
+Maximum Drawdown (MDD): Calculates peak-to-trough drop percentages to measure absolute structural downside asset vulnerabilities.
+
+Composite Fund Score: A custom factor-weighted ranking algorithm that unifies multiple return-efficiency and loss-prevention markers into a single scale (1 to 100).
+
+Outcome: Automated the production of a permanent performance scorecard registry (fund_scorecard.csv) for instant cross-sectional ranking and screening.
+
+DAY 5 – Interface Terminal Development
+
+Objective: Formulate a highly responsive web-based developer application utilizing advanced visualization tools.
+
+Technologies Used: Streamlit Web UI Framework, Plotly Visualizations Engine, Pandas Data Core, Pathlib Routing System, SQLite3 DB Controller.
+
+Interface Control Modules:
+
+Executive KPI Cards: Renders large-scale, clear readouts of critical indicators including Composite Score, CAGR, Sharpe, Alpha, Beta, and Max Drawdown.
+
+Expansive Interactive Performance Canvas: Built a multi-trace visual index using native dark-mode charting configurations to display asset lines alongside peak value callout annotations.
+
+High-Contrast Performance Leaderboards: Stacked data tables featuring strong cell padding and high font readability to allow users to screen raw assets.
+
+Historical NAV Table: Displays the continuous raw matrix data history.
+
+Structural Metadata Viewer: Pulls relational system information straight out of the background database architecture.
+
+Outcome: Delivered a professional, polished dashboard infrastructure engineered as a functional desktop terminal console.
+
+DAY 6 – Advanced Institutional Risk Intelligence
+
+Objective: Integrate advanced mathematical layer workflows to support risk asset monitoring and tail-risk insulation analysis.
+
+Advanced Metrics Coded:
+
+Historical Value at Risk (Daily VaR 95%): Computes the lower 5th percentile return boundary to isolate maximum expected single-day capital losses at a 95% statistical confidence tier.
+
+Conditional Value at Risk (Daily CVaR 95% / Expected Shortfall): Quantifies the expected average loss magnitude on catastrophic trading days when price drops break past the primary VaR boundary limit line.
+
+Long-Term Lifetime Beta: Captures steady-state system baseline sensitivities over the asset's total operational lifespan.
+
+Rolling 60-Day Beta Trends: Calculates dynamic, moving covariance matrices to track how fund managers adapt market exposure during shifting market conditions.
+
+Operational Data Pipeline:
+[Load raw historical prices] -> [Generate percentage returns matrix] -> [Compute percentile downside values] -> [Calculate moving window beta series] -> [Export risk arrays]
+
+Outcome: Upgraded the terminal dashboard with institutional portfolio risk intelligence cards and full-matrix tail-risk ledger screeners.
+
+DAY 7 – Master System Integration, Deployment & Reporting
+
+Objective: Combine independent software components into a unified system package.
+
+Final Project Deliverables:
+
+Complete backend data extraction script modules (etl_pipeline.py).
+
+Risk-adjusted evaluation calculation scripts (compute_metrics.py).
+
+Dynamic volatility and beta analytics modules (advance_risk_analytics.py).
+
+High-performance web presentation script layer (dashboard_app_work.py).
+
+Technical portfolio documentation manuals (README.md).
+
+Structured master system layout.
+
+Deployment Specifications:
+The final architecture executes locally using the Streamlit deployment engine and is designed with platform-agnostic code handles to easily support cloud hosting instances on Streamlit Community Cloud, AWS EC2, or Render environments.
+
+SYSTEM ARCHITECTURE DIAGRAM
+
+Raw CSV Data Influx -> ETL Pipeline Worker Scripts -> Analytical SQLite Database -> wide-form Data Cleaning & Continuity Transformations -> Performance Scorecard Calculations Core -> Advanced Risk Analytics Worker Engine -> Premium Dashboard UI Layer Display -> Actionable Investor Analytics Insights
+
+PROJECT EXPERIENCES & ANALYTICAL RESULTS
+
+The integrated platform successfully met its goals by:
+
+Processing historical NAV points without calculation errors.
+
+Generating stable risk-adjusted factor evaluation scorecards.
+
+Constructing dynamic multi-horizon analytics tracking layers (VaR, CVaR, Rolling Betas).
+
+Creating clear dashboard cards to help users quickly assess and contrast alternative investment paths.
+
+TECHNICAL CHALLENGES FACED & SOLUTIONS
+
+Time-Series Continuity Discrepancies: Raw files had missing observation blocks on bank holidays and weekends.
+Solution: Built a structured sequential forward-fill (ffill) and backward-fill (bfill) data transformation module to ensure uninterrupted time-series streams.
+
+Dashboard Variable Reference Crashes: Streamlit threw a severe pathing lookup blocker ("NameError: name 'db_path' is not defined") if launched from differing directory trees.
+Solution: Integrated Pathlib's "Path(os.getcwd())" to create an automated relative routing engine that anchors internal directory paths regardless of how the script is executed.
+
+Query Latency Issues: Complex relational join operations created noticeable UI lag when changing fund select boxes.
+Solution: Implemented storage caching decorators ("@st.cache_data") over the master SQL extraction scripts, compressing query runtimes down to milliseconds.
+
+FUTURE DEVELOPMENT EXTENSIONS
+
+Live API Data Feeds: Hooking up ingestion modules to programmatic public pipelines (like AMFI) to provide automated real-time price updates.
+
+Modern Portfolio Theory Calculators: Integrating automated Markowitz efficient frontier optimization matrices to auto-generate maximum Sharpe ratio weightings.
+
+Machine Learning Asset Recommendations: Testing predictive LSTM networks to model forward-looking volatility paths and upcoming tail-risk boundary breaks.
+
+CONCLUSION
+
+The Mutual Fund Analytics & Risk Intelligence Dashboard demonstrates how data engineering, financial risk analytics, and responsive interface design can be combined into a single system. By transitioning raw time-series data into actionable risk-adjusted metrics—such as historical Value at Risk and dynamic rolling market betas—the application provides a scalable architecture that helps investors thoroughly evaluate mutual funds through both return-efficiency and loss-prevention perspectives.
