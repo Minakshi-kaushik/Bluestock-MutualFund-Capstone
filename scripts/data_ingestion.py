@@ -73,7 +73,6 @@ for file in csv_files:
     try:
         df = pd.read_csv(file)
 
-        # Keep your original inspection console outputs
         print(f"Shape: {df.shape}")
         print(f"Columns: {df.columns.tolist()}")
         print(f"Missing Values:\n{df.isnull().sum()}")
@@ -193,7 +192,7 @@ for file in csv_files:
             )
             df.to_csv(PROCESSED_DIR / "cleaned_scheme_performance.csv", index=False)
 
-        # 4. Handle aum_by_fund_house (LOOSENED STRING MATCH FOR SAFE ACQUISITION)
+        # 4. Handle aum_by_fund_house
         elif "03_aum_by_fund_house" in file.name:
             print("   Loading AUM data rows into 'fact_aum'...")
             df_aum = df.rename(columns={"date": "date_id"})

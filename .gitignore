@@ -1,14 +1,19 @@
 __pycache__/
 *.pyc
 
+.venv/
+venv/
+env/
+
 .ipynb_checkpoints/
 
-*.db
-
-venv/
-.env
-
-data/processed/*
-data/db/*
+*.db-journal
 
 .DS_Store
+Thumbs.db
+
+*.log
+
+.idea/
+.vscode/
+*.db
