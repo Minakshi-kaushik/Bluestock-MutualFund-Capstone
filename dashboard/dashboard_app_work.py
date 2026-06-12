@@ -18,6 +18,18 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="collapsed",
 )
+st.write("DEBUG 1")
+
+st.markdown(
+    """
+    <style>
+    body { background: red !important; }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.write("DEBUG 2")
 
 # 2. Premium Institutional UI Layout Overrides
 st.markdown(
@@ -352,7 +364,11 @@ def load_all_system_data(db_path, csv_path):
         st.error(f"Missing scorecard file: {csv_path}")
 
 
+st.write("DEBUG 3 - BEFORE DATA LOAD")
+
 nav_matrix, df_score, df_meta = load_all_system_data(DB_PATH, SCORECARD_PATH)
+
+st.write("DEBUG 4 - AFTER DATA LOAD")
 
 # ==============================================================================
 # DAY 6 RISK DATA LOAD
