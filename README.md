@@ -534,3 +534,6 @@ Areas of Interest:
 # 📜 License
 
 This project was developed for academic and educational purposes as part of the Bluestock Fintech Internship Capstone Project.
+## Live Demo
+
+https://bluestock-mutualfund-capstone-8ct6n8tijzlpim2wyf9wtx.streamlit.app/
