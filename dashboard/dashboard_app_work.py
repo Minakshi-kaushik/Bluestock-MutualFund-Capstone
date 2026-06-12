@@ -304,19 +304,29 @@ st.markdown(
 )
 
 # 3. Dynamic Relative Project Path Router
-CURRENT_DIR = Path(os.getcwd())
-if CURRENT_DIR.name == "dashboard":
-    BASE_DIR = CURRENT_DIR.parent
-else:
-    BASE_DIR = CURRENT_DIR
+# ==============================================================================
+# STREAMLIT CLOUD DEPLOYMENT PATHS
+# ==============================================================================
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 DB_PATH = BASE_DIR / "bluestock_mf.db"
+
 SCORECARD_PATH = BASE_DIR / "data" / "processed" / "fund_scorecard.csv"
+
 RISK_CSV_PATH = BASE_DIR / "data" / "processed" / "advanced_risk_metrics.csv"
 
+required_files = [DB_PATH, SCORECARD_PATH]
+
+for file in required_files:
+    if not file.exists():
+        st.error(f"Missing required file: {file}")
+        st.stop()
 
 # 4. Data Gathering Pipelines
-@st.cache_data
+
+
+@st.cache_data(show_spinner=False)
 def load_all_system_data(db_path, csv_path):
     nav_matrix, df_scorecard, df_meta = None, None, None
     if db_path.exists():
@@ -338,7 +348,8 @@ def load_all_system_data(db_path, csv_path):
             st.code(traceback.format_exc())
     if csv_path.exists():
         df_scorecard = pd.read_csv(csv_path)
-    return nav_matrix, df_scorecard, df_meta
+    else:
+        st.error(f"Missing scorecard file: {csv_path}")
 
 
 nav_matrix, df_score, df_meta = load_all_system_data(DB_PATH, SCORECARD_PATH)
@@ -350,6 +361,8 @@ df_risk = None
 try:
     if RISK_CSV_PATH.exists():
         df_risk = pd.read_csv(RISK_CSV_PATH)
+    else:
+        st.warning("advanced_risk_metrics.csv not found. Risk Analytics disabled.")
 except Exception as e:
     st.error(f"Risk metrics loading error: {e}")
 
