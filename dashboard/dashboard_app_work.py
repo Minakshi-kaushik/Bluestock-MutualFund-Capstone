@@ -18,18 +18,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="collapsed",
 )
-st.write("DEBUG 1")
 
-st.markdown(
-    """
-    <style>
-    body { background: red !important; }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
-st.write("DEBUG 2")
 
 # 2. Premium Institutional UI Layout Overrides
 st.markdown(
@@ -365,24 +354,20 @@ def load_all_system_data(db_path, csv_path):
     return nav_matrix, df_scorecard, df_meta
 
 
-st.write("DEBUG 3 - BEFORE DATA LOAD")
-
 nav_matrix, df_score, df_meta = load_all_system_data(DB_PATH, SCORECARD_PATH)
 
-st.write("DEBUG 4 - AFTER DATA LOAD")
 
 # ==============================================================================
 # DAY 6 RISK DATA LOAD
 # ==============================================================================
 df_risk = None
+
 try:
     if RISK_CSV_PATH.exists():
         df_risk = pd.read_csv(RISK_CSV_PATH)
-    else:
-        st.warning("advanced_risk_metrics.csv not found. Risk Analytics disabled.")
+
 except Exception as e:
     st.error(f"Risk metrics loading error: {e}")
-
 # ==============================================================================
 # TRADINGVIEW BANNER HUD
 # ==============================================================================
