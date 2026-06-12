@@ -16,4 +16,4 @@ Thumbs.db
 
 .idea/
 .vscode/
-*.db
+# *.db

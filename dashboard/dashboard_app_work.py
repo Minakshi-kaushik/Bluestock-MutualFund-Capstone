@@ -362,6 +362,7 @@ def load_all_system_data(db_path, csv_path):
         df_scorecard = pd.read_csv(csv_path)
     else:
         st.error(f"Missing scorecard file: {csv_path}")
+    return nav_matrix, df_scorecard, df_meta
 
 
 st.write("DEBUG 3 - BEFORE DATA LOAD")
